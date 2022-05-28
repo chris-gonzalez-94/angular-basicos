@@ -1,0 +1,33 @@
+<p>listado works!</p>
+<!--*ngIf nos ayuda a mostarr un dato cuando se activa o cuando es true, si es false no se muestra
+en la pagina-->
+<!--La sentencia de abajo dice
+si heroeBorrado es distinto de...
+ngIf, funciona como un condicional-->
+<div *ngIf=" heroeBorrado; else noBorrado">
+    <h3>Hereo Borrado: <small>{{heroeBorrado}}</small></h3>  
+</div>
+
+<!--Para hecr la negacion de una condicion, usamos el signo de !-->
+<!--<div *ngIf="!heroeBorrado">
+    <h3>No ha borrado nada</h3>  
+</div>-->
+
+<!--En este caso, usamos una referencia local, las referencias locales se identifican por el #
+-->
+<ng-template #noBorrado>
+    <h3>
+        Usted no a borrado nada
+    </h3>
+</ng-template>
+
+
+<button (click)="borrarHeroe()">Borrar</button>
+
+ <ul>
+    <ol>
+        <!--"*ngFor" nos ayuda a recorrer el arreglo e imprimir de uno en uno, en listado como si fuera un li-->
+        <li *ngFor="let heroe of heroes; let i= index"> {{ heroe }}</li>
+    </ol>
+ </ul>
+
